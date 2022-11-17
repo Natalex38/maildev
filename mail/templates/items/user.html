@@ -1,0 +1,28 @@
+{% for user in users %}
+<div style="display: flex; flex-direction: row;
+    justify-content: space-around; background: #cacaca; margin: 5px;">
+    <div>
+         <p>{{user.FIRST_NAME}}</p>
+    </div>
+    <div>
+         <p>{{user.LAST_NAME}}</p>
+    </div>
+    <div>
+         <p>{{user.BIRTHDAY}}</p>
+    </div>
+    <div>
+         <p>{{user.TIMESENT}}</p>
+    </div>
+    <div>
+         <p>{{user.MAIL}}</p>
+    </div>
+    <div>
+         <p>{{user.STATUS}}</p>
+    </div>
+
+</div>
+{% endfor %}
+<form action="{% url 'mail_send' %}" method="post">{% csrf_token %}
+                   <button type="submit">Отправить письма пользователям.</button>
+              </form>
+
